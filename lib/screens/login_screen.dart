@@ -9,6 +9,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final email = TextEditingController();
+  FocusNode email_f = FocusNode();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,23 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               height: 44.h,
               decoration: BoxDecoration(
-                color: Colors.white,
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5.r)),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  color: Colors.black,
+                ),
+                controller: email,
+                focusNode: email_f,
+                decoration: InputDecoration(
+                    hintText: 'email',
+                    prefixIcon: Icon(Icons.email),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.r),
+                    )),
               ),
             )
           ],
